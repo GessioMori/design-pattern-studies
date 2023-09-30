@@ -1,0 +1,127 @@
+{
+  "equipment": [
+    {
+      "id": "sword_1",
+      "name": "Sword of Power",
+      "type": "Weapon",
+      "damage": 10,
+      "damageType": "Slashing",
+      "durability": 20
+    },
+    {
+      "id": "armor_1",
+      "name": "Plate Mail",
+      "type": "Armor",
+      "defense": 15,
+      "armorType": "Heavy",
+      "durability": 25
+    },
+    {
+      "id": "staff_1",
+      "name": "Wizard's Staff",
+      "type": "Weapon",
+      "damage": 8,
+      "damageType": "Magic",
+      "durability": 15
+    },
+    {
+      "id": "bow_1",
+      "name": "Elven Bow",
+      "type": "Weapon",
+      "damage": 12,
+      "damageType": "Piercing",
+      "durability": 18
+    },
+    {
+      "id": "robe_1",
+      "name": "Enchanted Robe",
+      "type": "Armor",
+      "defense": 12,
+      "armorType": "Light",
+      "durability": 20
+    },
+    {
+      "id": "shield_1",
+      "name": "Iron Shield",
+      "type": "Armor",
+      "defense": 10,
+      "armorType": "Heavy",
+      "durability": 30
+    },
+    {
+      "id": "dagger_1",
+      "name": "Assassin's Dagger",
+      "type": "Weapon",
+      "damage": 6,
+      "damageType": "Piercing",
+      "durability": 12
+    },
+    {
+      "id": "wand_1",
+      "name": "Elder Wand",
+      "type": "Weapon",
+      "damage": 15,
+      "damageType": "Magic",
+      "durability": 25
+    }
+  ],
+  "skills": [
+    {
+      "id": "skill_1",
+      "name": "Fireball",
+      "description": "Launches a fiery projectile",
+      "cooldown": 10,
+      "damage": 12
+    },
+    {
+      "id": "skill_2",
+      "name": "Healing Touch",
+      "description": "Restores health to the target",
+      "cooldown": 8,
+      "healingAmount": 20
+    },
+    {
+      "id": "skill_3",
+      "name": "Stealth",
+      "description": "Become invisible to enemies",
+      "cooldown": 15,
+      "duration": 10
+    },
+    {
+      "id": "skill_4",
+      "name": "Lightning Bolt",
+      "description": "Summons a bolt of lightning",
+      "cooldown": 12,
+      "damage": 18
+    },
+    {
+      "id": "skill_5",
+      "name": "Teleport",
+      "description": "Instantly teleport to a target location",
+      "cooldown": 20
+    },
+    {
+      "id": "skill_6",
+      "name": "Poison Dart",
+      "description": "Shoots a poisoned dart at the target",
+      "cooldown": 8,
+      "damageOverTime": 5,
+      "duration": 10
+    },
+    {
+      "id": "skill_7",
+      "name": "Berserker Rage",
+      "description": "Enters a state of frenzied rage",
+      "cooldown": 25,
+      "damageBonus": 20,
+      "duration": 15
+    },
+    {
+      "id": "skill_8",
+      "name": "Frost Nova",
+      "description": "Freezes nearby enemies in place",
+      "cooldown": 15,
+      "freezeDuration": 6
+    }
+  ]
+}

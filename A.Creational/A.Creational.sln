@@ -10,7 +10,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Itens de Solução", "Itens
 		.gitignore = .gitignore
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2.AbstractFactory", "2.AbstractFactory\2.AbstractFactory.csproj", "{28C3B2D5-2969-4D5F-911D-5B6DAE03C12A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "2.AbstractFactory", "2.AbstractFactory\2.AbstractFactory.csproj", "{28C3B2D5-2969-4D5F-911D-5B6DAE03C12A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "3.Builder", "3.Builder\3.Builder.csproj", "{DF9039A4-AD7E-4B2F-AE50-FC5732F69F8B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -26,9 +28,16 @@ Global
 		{28C3B2D5-2969-4D5F-911D-5B6DAE03C12A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{28C3B2D5-2969-4D5F-911D-5B6DAE03C12A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{28C3B2D5-2969-4D5F-911D-5B6DAE03C12A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DF9039A4-AD7E-4B2F-AE50-FC5732F69F8B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DF9039A4-AD7E-4B2F-AE50-FC5732F69F8B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DF9039A4-AD7E-4B2F-AE50-FC5732F69F8B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DF9039A4-AD7E-4B2F-AE50-FC5732F69F8B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{DF9039A4-AD7E-4B2F-AE50-FC5732F69F8B} = {C70B619D-86F6-452E-879E-8EDCF80EBEB1}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {59BC65DE-1090-49B0-9E79-903FD066F72A}
