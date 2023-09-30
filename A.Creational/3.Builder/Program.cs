@@ -1,14 +1,5 @@
-﻿/*
-    Client implementa um programa para criar personagens
-    Deve existir um objeto diretor com as funções de criar um personagem aleatório ou um personagem com inputs do user
-    Objeto diretor recebe um builder
-    Existem diferentes builders que implementam a mesma interface
-    Posso usar generics???
-*/
+﻿using System.Text.Json;
 
-using System;
-using System.IO;
-using System.Text.Json;
 
 public abstract class CharacterBuilder<T> where T : Character
 {
@@ -32,6 +23,7 @@ public class CharacterAttributes
 
 public class Equipment
 {
+    public required string Id { get; set; }
     public required string Name { get; set; }
     public int Durability { get; set; }
 }
@@ -48,6 +40,7 @@ public class Armor : Equipment
 
 public class Skill
 {
+    public required string Id { get; set; }
     public string Name { get; set; }
     public string Description { get; set; }
     public int Cooldown { get; set; }
@@ -89,8 +82,8 @@ public class WarriorBuilder : CharacterBuilder<Warrior>
         if (this.product != null)
         {
             List<Equipment> baseEquips = new List<Equipment>()
-            { new Weapon(){Name = "Sword", Damage = 20,Durability = 10  },
-            { new Armor(){Name = "Plate armor", Defense = 20,Durability = 20  } } };
+            { new Weapon(){Name = "Sword", Damage = 20,Durability = 10, Id = "war_weapon_1"  },
+            { new Armor(){Name = "Plate armor", Defense = 20,Durability = 20, Id = "war_armor_1"  } } };
 
             equips.AddRange(baseEquips);
 
@@ -103,7 +96,7 @@ public class WarriorBuilder : CharacterBuilder<Warrior>
         if (this.product != null)
         {
             List<Skill> baseSkills = new List<Skill>()
-            { new Skill() {Name = "Slash", Description = "Slash", Cooldown = 1, Damage = 10 } };
+            { new Skill() {Name = "Slash", Description = "Slash", Cooldown = 1, Damage = 10, Id = "war_skill_1" } };
 
             skills.AddRange(baseSkills);
 
@@ -148,8 +141,8 @@ public class WarlockBuilder : CharacterBuilder<Warlock>
         if (this.product != null)
         {
             List<Equipment> baseEquips = new List<Equipment>()
-            { new Weapon(){Name = "Staff", Damage = 5, Durability = 8  },
-            { new Armor(){Name = "Cloth armor", Defense = 10, Durability = 10  } } };
+            { new Weapon(){Name = "Staff", Damage = 5, Durability = 8, Id = "lock_weapon_1"  },
+            { new Armor(){Name = "Cloth armor", Defense = 10, Durability = 10, Id = "lock_armor_1"  } } };
 
             equips.AddRange(baseEquips);
 
@@ -162,8 +155,8 @@ public class WarlockBuilder : CharacterBuilder<Warlock>
         if (this.product != null)
         {
             List<Skill> baseSkills = new List<Skill>()
-            { new Skill() {Name = "Ignite", Description = "Ignite", Cooldown = 3, Damage = 10 },
-            { new Skill() {Name = "Flame arc", Description = "Flame arc", Cooldown = 5, Damage = 30 }}};
+            { new Skill() {Name = "Ignite", Description = "Ignite", Cooldown = 3, Damage = 10, Id = "lock_skill_1" },
+            { new Skill() {Name = "Flame arc", Description = "Flame arc", Cooldown = 5, Damage = 30, Id = "lock_skill_1" }}};
 
             skills.AddRange(baseSkills);
 
@@ -185,7 +178,8 @@ public class WarlockBuilder : CharacterBuilder<Warlock>
 
 public class CharacterData
 {
-    public List<Equipment> Equipments { get; set; }
+    public List<Weapon> Weapons { get; set; }
+    public List<Armor> Armors { get; set; }
     public List<Skill> Skills { get; set; }
 }
 
@@ -215,13 +209,17 @@ public class CharacterBuildDirector
             Console.WriteLine("JSON file not found in the specified location.");
         }
     }
-    public void makeRandomCharacter(CharacterBuilder<Character> builder)
+    public void makeRandomCharacter<T>(CharacterBuilder<T> builder) where T : Character
     {
         if (characterData != null)
         {
             builder.reset();
             builder.setSkills(GetRandom(characterData.Skills, 2));
-            builder.setEquips(GetRandom(characterData.Equipments, 2));
+
+            List<Equipment> equips = new();
+            equips.AddRange(GetRandom(characterData.Armors, 1));
+            equips.AddRange(GetRandom(characterData.Weapons, 1));
+            builder.setEquips(equips);
             builder.setStats(GetRandomAttributes());
         }
     }
@@ -319,14 +317,14 @@ class Program
                 if (choice == "1")
                 {
                     WarriorBuilder warriorBuilder = new WarriorBuilder();
-                    characterBuildDirector.makeRandomCharacter((CharacterBuilder<Character>)warriorBuilder);
+                    characterBuildDirector.makeRandomCharacter(warriorBuilder);
                     listOfCharacters.Add(warriorBuilder.build());
                     Console.Write("Char created!");
                 }
                 else if (choice == "2")
                 {
                     WarlockBuilder warlockBuilder = new WarlockBuilder();
-                    characterBuildDirector.makeRandomCharacter((CharacterBuilder<Character>)warlockBuilder);
+                    characterBuildDirector.makeRandomCharacter(warlockBuilder);
                     listOfCharacters.Add(warlockBuilder.build());
                     Console.Write("Char created!");
                 }
